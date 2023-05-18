@@ -1,9 +1,16 @@
-import React from 'react'
+import {React,useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
 
 import "./AllProblems.css"
 
-const AllProblemsPage = ({problems}) => {
+const AllProblemsPage = () => {
+
+  const [problems, setProblems] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:3000/problems')
+      .then(response => response.json())
+      .then(problems => setProblems(problems))
+  }, [])
   return (
     <div id="allproblems">
       <table>

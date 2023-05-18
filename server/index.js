@@ -10,6 +10,12 @@ app.use(bodyParser.json());
 const {auth} = require('./middleware.js');
 var jwt = require("jsonwebtoken");
 const JWT_SECRET = "secret";
+const cors = require('cors');
+app.use(cors());
+
+
+
+
 
 
  const problems = [
@@ -132,16 +138,20 @@ app.get('/me',auth,(req,res) => {
 app.post("/signup", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-    const user = USERS.find(x => x.email === email);
-    if (user) {
-
-    
-      return res.status(403).send('User already exists');
+    if (USERS.find((x) => x.email === email)) {
+      return res.status(403).json({ msg: "Email already exists" });
     }
-
-    USERS.push({ email, password,id: USER_ID_COUNTER++ });
-    return res.status(200).json({msg: 'User created'});
-});
+  
+    USERS.push({
+      email,
+      password,
+      id: USER_ID_COUNTER++,
+    });
+  
+    return res.json({
+      msg: "Success",
+    });
+  });
 app.get("/submission/:problemID",auth, (req,res) => {
 
     const problemId = req.params.problemId;

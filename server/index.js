@@ -167,17 +167,17 @@ app.post("/submission",auth, (req,res) => {
     const accepted   = Math.random() > 0.5;
     const problemId = req.body.problemId;
     const submission = req.body.submission;
-    const user = USERS.find(x=> x.id=== req.userID);
     if(accepted)
     {
-        SUBMISSIONS.push({problemId,submission,userId: user.id});
+        SUBMISSIONS.push({problemId,submission,userId: req.userID,status: 'AC'});
         return res.json({msg: 'AC'});
     }
     else
     {
+        SUBMISSIONS.push({problemId,submission,userId: req.userID,status: 'WA'});
         return res.json({msg: 'WA'});
     }
-})
+});
 app.post("/login", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;

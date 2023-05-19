@@ -11,8 +11,6 @@ module.exports = {
         const decoded = jwt.verify(authHeader, JWT_SECRET);
         if(decoded && decoded.id){
             req.userID = decoded.id;
-            console.log(req.userID);
-            console.log(decoded.id);
             next();
         }
         return res.status(403).json({msg: 'Authorization header invalid'});

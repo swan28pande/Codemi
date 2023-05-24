@@ -1,7 +1,7 @@
 
 # Leetcode clone
 
-This is a leetcode clone where users can signup, view peoblems and submit their solutions 
+This is a leetcode clone where users can signup, view problems and submit their solutions 
 
 
 

@@ -1,0 +1,52 @@
+[
+    {
+        "problemId": "1",
+        "title": "206. Reverse Linked List",
+        "difficulty": "Easy",
+        "acceptance": "65%",
+        "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+        "exampleIn": "head = [1,2,3,4,5]",
+        "exampleOut": "[5,4,3,2,1]"
+    },
+    {
+        "problemId": "2",
+       "title": "207. Course Schedule",
+       "difficulty": "Medium",
+       "acceptance": "47%",
+       "description": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.",
+       "exampleIn": "numCourses = 2, prerequisites = [[1,0]]",
+       "exampleOut": "true"
+    },
+    {
+        "problemId": "3",
+        "title": "208. Implement Trie (Prefix Tree)",
+        "difficulty": "Medium",
+        "acceptance": "49%",
+        "description": "A trie (pronounced as \"try\") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.",
+        "exampleIn": "Trie trie = new Trie(); trie.insert(\"apple\"); trie.search(\"apple\");   // return True trie.search(\"app\");     // return False trie.startsWith(\"app\"); // return True trie.insert(\"app\"); trie.search(\"app\");     // return True",
+        "exampleOut": "true"
+    },
+    {
+        "problemId": "4",
+        "title": "209. Minimum Size Subarray Sum",
+        "difficulty": "Medium",
+        "acceptance": "40%",
+        "description": "Given an array of positive integers nums and a positive integer target, return the minimal length of a contiguous subarray [numsl, numsl+1, ..., numsr-1, numsr] of which the sum is greater than or equal to target. If there is no such subarray, return 0 instead.",
+        "exampleIn": "target = 7, nums = [2,3,1,2,4,3]",
+        "exampleOut": "2"
+    },
+    {
+        "problemId": "5",
+        "title": "210. Course Schedule II",
+        "difficulty": "Medium",
+        "acceptance": "42%",
+        "description": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.",
+        "exampleIn": "numCourses = 2, prerequisites = [[1,0]]",
+        "exampleOut": "[0,1]"
+    }
+
+
+
+
+
+]

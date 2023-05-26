@@ -4,6 +4,7 @@ const app = express()
 const port = 3000
 
 const bodyParser = require('body-parser')
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 //import middleware.js file
@@ -18,81 +19,16 @@ app.use(cors());
 
 
 
- const problems = [
-    {
-        problemId: "1",
-        title: "201. Bitwise AND of Numbers Range",
-        difficulty: "Medium",
-        acceptance: "42%",
-        description: "Given two integers left and right that represent the range [left, right], return the bitwise AND of all numbers in this range, inclusive.",
-        exampleIn: "left = 5, right = 7",
-        exampleOut: "4"
-    },
-    {
-        problemId: "2",
-        title: "205. Add two numbers",
-        difficulty: "Medium",
-        acceptance: "41%",
-        description: "Given two numbers, add them and return them in integer range. use MOD=1e9+7",
-        exampleIn: "a = 100 , b = 200",
-        exampleOut: "300"
-    },
-    {
-        problemId: "3",
-        title: "202. Happy Number",
-        difficulty: "Easy",
-        acceptance: "54.9%",
-        description: "Write an algorithm to determine if a number n is happy.",
-        exampleIn: "n = 19",
-        exampleOut: "true"
-    },
-    {
-        problemId: "4",
-        title: "203. Remove Linked List Elements",
-        difficulty: "Hard",
-        acceptance: "42%",
-        description: "Given number k , removed kth element",
-        exampleIn: "list: 1->2->3 , k=2",
-        exampleOut: "1->3"
-    },
-    {
-        problemId: "5",
-        title: "204. Count Primes",
-        difficulty: "Easy",
-        acceptance: "32%",
-        description: "Given an integer n, return the number of prime numbers that are strictly less than n.",
-        exampleIn: "n = 10",
-        exampleOut: "4"
-    },
-    {
-        problemId: "6",
-        title: "206. Reverse Linked List",
-        difficulty: "Easy",
-        acceptance: "65%",
-        description: "Given the head of a singly linked list, reverse the list, and return the reversed list.",
-        exampleIn: "head = [1,2,3,4,5]",
-        exampleOut: "[5,4,3,2,1]"
-    },
-    {
-        problemId: "7",
-        title: "207. Course Schedule",
-        difficulty: "Medium",
-        acceptance: "47%",
-        description: "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.",
-        exampleIn: "numCourses = 2, prerequisites = [[1,0]]",
-        exampleOut: "true"
-    },
-    {
-        problemId: "8",
-        title: "208. Implement Trie (Prefix Tree)",
-        difficulty: "Medium",
-        acceptance: "48%",
-        description: "Implement the Trie class:",
-        exampleIn: "Trie trie = new Trie();",
-        exampleOut: "null"
-    }
-
-];
+ const fetchProblemsFromCollection = require('./fetchProblemsFromCollection') ; 
+let problems = [];
+ fetchProblemsFromCollection()
+  .then((data) => {
+     problems = data;
+    // Process the data further as needed
+  })
+  .catch((error) => {
+    console.error('Error fetching data:', error);
+  });
 const USERS = [];
 const SUBMISSIONS = [];
 var USER_ID_COUNTER = 1; 

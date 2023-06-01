@@ -36,4 +36,24 @@ const ProblemSchema = new Schema({
 
 const Problem = mongoose.model('Problems', ProblemSchema);
 
-module.exports = Problem;
+const UserSchema = new Schema({
+   
+    email: {
+        type: String,
+        required: [true, 'field is required']
+    },
+    password: {
+        type: String,
+        required: [true, 'field is required']
+    },
+    id: {
+        type: String,
+        required: [true, 'field is required']
+    },
+
+});
+
+const User = mongoose.model('Users', UserSchema);
+
+
+module.exports = {Problem,User};

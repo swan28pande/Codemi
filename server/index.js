@@ -15,7 +15,7 @@ const cors = require('cors');
 app.use(cors());
 
 
-
+const {User} = require('./models/models');
 
 
 
@@ -71,22 +71,39 @@ app.get('/me',auth,(req,res) => {
         
 
 
-app.post("/signup", (req, res) => {
+app.post("/signup", async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-    if (USERS.find((x) => x.email === email)) {
-      return res.status(403).json({ msg: "Email already exists" });
+    try {
+        const existingUser = await User.findOne({ $or: [{ email }, { password }] });
+
+        if (existingUser) {
+          return res.status(400).json({ error: 'User already exists' });
+        }
+      
+          const user = new User({
+              email,
+              password,
+              id: USER_ID_COUNTER++,
+            });
+        
+        //   USERS.push({
+        //     email,
+        //     password,
+        //     id: USER_ID_COUNTER++,
+        //   });
+          await user.save();
+      
+      
+        
+          return res.json({
+            msg: "Success",
+          });
     }
-  
-    USERS.push({
-      email,
-      password,
-      id: USER_ID_COUNTER++,
-    });
-  
-    return res.json({
-      msg: "Success",
-    });
+    catch (error){
+        res.status(500).json({ error: 'Failed to create user' });
+    }
+ 
   });
 app.get("/submission/:problemID",auth, (req,res) => {
 

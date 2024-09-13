@@ -1,7 +1,7 @@
 
-# Leetcode clone
 
-This is a leetcode clone where users can signup, view problems and submit their solutions 
+
+This is a Coding Platform where users can signup, view problems and submit their solutions 
 
 
 
@@ -11,13 +11,13 @@ This is a leetcode clone where users can signup, view problems and submit their 
 Clone the project
 
 ```bash
-  git clone https://github.com/swan28pande/leetcode-app
+  git clone https://github.com/swan28pande/codemi
 ```
 
 Go to the server directory
 
 ```bash
-  cd leetcode-app/server
+  cd codemi/server
 ```
 
 Install dependencies
@@ -35,7 +35,7 @@ Start the server
 Open new terminal and go to the client directory
 
 ```bash
-  cd leetcode-app/client
+  cd codemi/client
 ```
 
 Install dependencies
